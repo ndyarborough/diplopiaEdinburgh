@@ -67,17 +67,15 @@ function question1() {
     var answer2Text = blockTop.q1.a2;
     answer2.innerHTML = answer2Text;
 
-    $("#btn0").click(function() {
+    $("#btn0").one("click", function() {
         userInput = this.innerHTML;
         runBlock1();
-        return
     });
 
-    $("#btn1").click(function() {
+    $("#btn1").one("click", function() {
         userInput = this.innerHTML;
         question.innerHTML = "Blurred Vision <br> See visual loss algorithm (figure 3.2)";
         $("#buttons").empty();
-        return
     });
 }
 
