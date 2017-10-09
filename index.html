@@ -13,25 +13,21 @@
 			<!-- Navbar -->
 			<ul class="nav-list">
 				<li><a id="logo" href="#">MyDiplopiaExam</a></li>
-				<li><a id="myBtn" href="#">Sign Up</a></li>
-				<li><a href="#">Login</a></li>
+				<li><a id="signUpBtn" href="#">Sign Up</a></li>
+				<li><a id="loginBtn" href="#">Login</a></li>
 			</ul>
 			<!-- Begin Test Button -->
 			<div id="testBox">
 				<h1>Click to Begin Test!</h1>
-				<button id="beginTest"><a href="main.html">Go</a></button>
+				<a href="main.html"><button id="beginTest">Go</button></a>
 			</div>
-
-
-
-
 			<!-- Login Modal -->
 			<!-- Signup Modal -->
-			<div id="myModal" class="modal">
+			<div id="signUpModal" class="signUpModal">
 				<!-- Modal content -->
-				<div class="modal-content">
+				<div class="signUp-content">
 					<!-- Close Window Icon "X" -->
-					<span class="close">&times;</span>
+					<span class="signUpClose">&times;</span>
 					<!-- Modal Body -->
 					<div class="container">
 						<label><b>Email</b></label>
@@ -50,29 +46,28 @@
 				</div>
 			</div>
 			<!-- Sign Up Modal Close -->
+			<!-- Login Modal -->
+			<div id="loginModal" class="loginModal">
+				<!-- Modal content -->
+				<div class="login-content">
+					<!-- Close Window Icon "X" -->
+					<span class="loginClose">&times;</span>
+					<!-- Modal Body -->
+					<div class="container">
+						<label><b>Username</b></label>
+						<input type="text" placeholder="Enter Username" name="uname" required>
+						<label><b>Password</b></label>
+						<input type="password" placeholder="Enter Password" name="psw" required>
+						<button type="submit">Login</button>
+						<input type="checkbox" checked="checked"> Remember me
+					</div>
+					<div class="container" style="background-color:#f1f1f1">
+						<span class="psw">Forgot <a href="#">password?</a></span>
+					</div>
+				</div>
+			</div>
+			<!-- Login Modal Close -->
 		</div>
-		<script>
-			// Get the modal
-		var modal = document.getElementById('myModal');
-		// Get the button that opens the modal
-		var btn = document.getElementById("myBtn");
-		// Get the <span> element that closes the modal
-					var span = document.getElementsByClassName("close")[0];
-					// When the user clicks on the button, open the modal
-					btn.onclick = function() {
-					modal.style.display = "block";
-					}
-					// When the user clicks on <span> (x), close the modal
-								span.onclick = function() {
-								modal.style.display = "none";
-								}
-								// When the user clicks anywhere outside of the modal, close it
-								window.onclick = function(event) {
-								if (event.target == modal) {
-								modal.style.display = "none";
-								}
-								}
-				</script>
-				<script src="app.js"></script>
-			</body>
-			</ht
+		<script src="main.js"></script>
+	</body>
+	</ht
