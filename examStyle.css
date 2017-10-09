@@ -18,10 +18,10 @@ body {
 
 .nav-list li {
     float: left;
+    margin-top: 9px;
 }
 
 .nav-list li a {
-	margin-top: 9px;
     display: block;
     color: white;
     font-size: 1.2em;
