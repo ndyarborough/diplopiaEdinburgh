@@ -142,4 +142,14 @@ button {
     }
 }
 
+#testBox {
+	margin: 12vh 0 0 8vw;
+}
+
+#beginTest {
+	background-color: #333;
+	width: 20%;
+	border-radius: 8px;
+}
+
 /*Log in Modal*/
