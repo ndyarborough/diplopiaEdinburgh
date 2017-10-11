@@ -18,7 +18,7 @@ const questionSet = {
     q3: {
         question: "Still present when patient looks throung a pinhole?",
         a1: true,
-        n1: null, 
+        n1: "Cortical Abnormality", 
         a2: false,
         n2: null,
         previous: "q2"
@@ -58,13 +58,8 @@ const questionSet = {
 }
 
 var userInput;
-var currentQuestion = "q1";
 
-function exam() {
-    question1();
-}
-
-function question1() {
+function exam(currentQuestion) {
     // Populate Question Div
     var questionText = questionSet[currentQuestion].question;
     var question = document.getElementById("question");
@@ -77,18 +72,20 @@ function question1() {
     var answer2 = document.getElementById("btn1");
     var answer2Text = questionSet.q1.a2;
     answer2.innerHTML = answer2Text;
-
-    $("#btn0").one("click", function() {
+    // True Click
+    $("#btn0").on("click", function() {
+        debugger;
         userInput = this.innerHTML;
-        currentQuestion = currentQuestion.n1;
-        question1();
+        exam(questionSet[currentQuestion].n1);
     });
-
-    $("#btn1").one("click", function() {
+    // False Click
+    $("#btn1").on("click", function() {
+        debugger;
+        console.log(currentQuestion);
+        console.log(questionSet[currentQuestion]);
         userInput = this.innerHTML;
-        question.innerHTML = "Blurred Vision <br> See visual loss algorithm (figure 3.2)";
-        currentQuestion = currentQuestion.n2;
+        exam(questionSet[currentQuestion].n2);        
     });
 }
 
-exam();
+exam("q1");
