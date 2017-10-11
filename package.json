@@ -1,0 +1,26 @@
+{
+  "name": "diplopiaedinburgh",
+  "version": "0.0.1",
+  "description": "diplopia algorithm",
+  "main": "server.js",
+  "scripts": {
+    "test": "start",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ndyarborough/diplopiaEdinburgh.git"
+  },
+  "author": "Noah, Mona, Nicholas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ndyarborough/diplopiaEdinburgh/issues"
+  },
+  "homepage": "https://github.com/ndyarborough/diplopiaEdinburgh#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mysql2": "^1.4.2",
+    "sequelize": "^4.13.8"
+  }
+}
