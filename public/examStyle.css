@@ -241,3 +241,9 @@ button {
     text-decoration: none;
     cursor: pointer;
 }
+
+.previousQuestion {
+    float: left;
+    margin-top: 15vh;
+    font-size: 3em;
+}
