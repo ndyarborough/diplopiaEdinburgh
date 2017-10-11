@@ -72,19 +72,18 @@ function exam(currentQuestion) {
     var answer2 = document.getElementById("btn1");
     var answer2Text = questionSet.q1.a2;
     answer2.innerHTML = answer2Text;
-    // True Click
-    $("#btn0").on("click", function() {
-        debugger;
-        userInput = this.innerHTML;
-        exam(questionSet[currentQuestion].n1);
-    });
-    // False Click
-    $("#btn1").on("click", function() {
-        debugger;
-        console.log(currentQuestion);
-        console.log(questionSet[currentQuestion]);
-        userInput = this.innerHTML;
-        exam(questionSet[currentQuestion].n2);        
+
+    $(".btn").on("click", function() {
+        // If True is clicked
+        if ($(this).attr("id") === "btn0") {
+            $(".btn").off();
+            exam(questionSet[currentQuestion].n1)
+        } 
+        // If False is clicked
+        else {
+            $(".btn").off();
+            exam(questionSet[currentQuestion].n2)
+        }
     });
 }
 
