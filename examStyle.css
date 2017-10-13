@@ -241,3 +241,8 @@ button {
     text-decoration: none;
     cursor: pointer;
 }
+
+.fa-backward {
+    float: left;
+    margin-top: 15px;
+}
