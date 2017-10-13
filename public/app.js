@@ -1,3 +1,7 @@
+$.get('api/diagnosis', function(data) {
+    console.log(data);
+});
+
 $("#backwards").on("click", function() {
     if (questionSet[questionNumber] === "q1") {
         alert("Can't go any further!");
