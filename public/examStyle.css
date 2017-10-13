@@ -247,3 +247,8 @@ button {
     margin-top: 15vh;
     font-size: 3em;
 }
+
+.fa-backward {
+    float: left;
+    margin-top: 15px;
+}
