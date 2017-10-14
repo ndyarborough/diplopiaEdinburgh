@@ -1,3 +1,9 @@
+$.ajax('/api/user_data', {
+    type: 'GET'
+}).then(function(data) {
+    console.log(data)
+})
+
 const questionSet = {
     q1: {
         question: "Does the patient see two separate images or one blurred image?",
@@ -118,7 +124,7 @@ function exam(currentQuestion) {
 function goToDiagnosis(diagnosisName) {
     var formattedName = diagnosisName.replace(" ", "%20");
     // If Diagnosis is reached
-    $.get(`api/diagnosis/${formattedName}`, function(data) {
+    $.get(`/api/diagnosis/${formattedName}`, function(data) {
         console.log(data);
         // Display Diagnoses
         $(".grid").remove();
