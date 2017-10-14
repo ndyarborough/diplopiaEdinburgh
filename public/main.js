@@ -42,3 +42,12 @@ window.onclick = function(event) {
     }
 }
 
+
+$('#logoutBtn').on('click', function() {
+    $.ajax('/logout', {
+        type: "GET"
+    }).then(function() {
+        
+    })
+})
+

@@ -14,5 +14,10 @@ module.exports = (sequelize, DataTypes) => {
 			type: DataTypes.STRING
 		}
 	});
+
+	Diagnosis.associate = function(models) {
+		Diagnosis.hasOne(models.User);
+	};
+
 	return Diagnosis;
 }

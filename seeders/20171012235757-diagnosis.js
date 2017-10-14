@@ -42,11 +42,15 @@ module.exports = {
         etiology: 'Most commonly trauma or vascular infarct from diabetes or hypertension. Rarely, from a tumor, aneurysm, or giant cell arteritis.',
         timeline: 'Refer urgently.',
         workup: 'Complete ocular exam. Tensilon test. CT scan of head and orbits (suspect orbital disease). MRI of the brain.'    
+      },{
+        diagnosis: 'Blurred Vision',
+        etiology: null,
+        timeline: null,
+        workup: null    
       }], {});
         /*
       Add altering commands here.
       Return a promise to correctly handle asynchronicity.
-
       Example:
       return queryInterface.bulkInsert('Person', [{
         name: 'John Doe',
@@ -59,7 +63,6 @@ module.exports = {
     /*
       Add reverting commands here.
       Return a promise to correctly handle asynchronicity.
-
       Example:
       return queryInterface.bulkDelete('Person', null, {});
     */

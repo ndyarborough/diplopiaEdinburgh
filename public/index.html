@@ -18,6 +18,7 @@
 				<li><a id="logo" href="#">MyDiplopiaExam</a></li>
 				<li><a id="signUpBtn" href="#">Sign Up</a></li>
 				<li><a id="loginBtn" href="#">Login</a></li>
+				<li><a id="logoutBtn" href="index.html">Logout</a></li>
 			</ul>
 			<!-- Begin Test Button -->
 			<div id="testBox">
@@ -32,18 +33,21 @@
 					<!-- Close Window Icon "X" -->
 					<span class="signUpClose">&times;</span>
 					<!-- Modal Body -->
-					<div class="container">
-						<label><b>Email</b></label>
-						<input type="text" placeholder="Enter Email" name="email" required>
-						<label><b>Password</b></label>
-						<input type="password" placeholder="Enter Password" name="psw" required>
-						<label><b>Repeat Password</b></label>
-						<input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-						<div class="clearfix">
-							<button type="button"  class="cancelbtn">Cancel</button>
-							<button type="submit" class="signupbtn">Sign Up</button>
-						</div>
-					</div>
+					<form method="post" action="/register">
+					  <div class="form-group">
+					    <label>Email</label>
+					    <input type="text" class="form-control" placeholder="Email" name="email">
+					  </div>
+					  <div class="form-group">
+					    <label>Password</label>
+					    <input type="password" class="form-control" placeholder="Password" name="password">
+					  </div>
+					  <div class="form-group">
+					    <label>Confirm Password</label>
+					    <input type="password" class="form-control" placeholder="Password" name="password2">
+					  </div>
+					  <button type="submit" class="btn btn-default">Submit</button>
+					</form>
 				</div>
 			</div>
 			<!-- Sign Up Modal Close -->
@@ -54,14 +58,19 @@
 					<!-- Close Window Icon "X" -->
 					<span class="loginClose">&times;</span>
 					<!-- Modal Body -->
-					<div class="container">
-						<label><b>Username</b></label>
-						<input type="text" placeholder="Enter Username" name="uname" required>
-						<label><b>Password</b></label>
-						<input type="password" placeholder="Enter Password" name="psw" required>
-						<div class="g-signin2" data-onsuccess="onSignIn"></div>
-						<button type="submit">Login</button>
-					</div>
+					<form action="/login" method="post">
+					    <div>
+					        <label>Email:</label>
+					        <input type="text" name="email"/>
+					    </div>
+					    <div>
+					        <label>Password:</label>
+					        <input type="password" name="password"/>
+					    </div>
+					    <div>
+					        <input type="submit" value="Log In"/>
+					    </div>
+					</form>
 				</div>
 			</div>
 			<!-- Login Modal Close -->
