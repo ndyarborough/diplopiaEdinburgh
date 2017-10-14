@@ -57,15 +57,6 @@ const questionSet = {
     }
 }
 
-$("#backwards").on("click", function() {
-    if (questionSet[questionNumber] === "q1") {
-        alert("Can't go any further!");
-    } else {
-        exam(questionSet[questionNumber].previous);
-    }
-    return;
-});
-
 $(".btn").on("click", function() {
     // If True is clicked
     if ($(this).attr("id") === "btn0") {
@@ -96,6 +87,19 @@ var questionNumber = "q1";
 
 function exam(currentQuestion) {
     questionNumber = currentQuestion;
+    $("#backwards").remove();
+
+    // Don't Display Backwards Icon on First Question
+    if (questionNumber !== "q1") {
+        var backwardButton = $("<div>").attr("id", "backwards");
+        var icon = $("<i>").addClass("fa fa-2x fa-backward").attr("aria-hidden", "true");
+        $("#buttons").prepend(backwardButton);
+        $(backwardButton).append(icon);
+        backwardButton.click(function() {
+            exam(questionSet[questionNumber].previous);
+            return;
+        })
+    }
 
     // Populate Question Div
     var questionText = questionSet[currentQuestion].question;
@@ -112,18 +116,18 @@ function exam(currentQuestion) {
 }
 
 function goToDiagnosis(diagnosisName) {
-            var formattedName = diagnosisName.replace(" ", "%20");
-            // If Diagnosis is reached
-            $.get(`api/diagnosis/${formattedName}`, function(data) {
-                console.log(data);
-                // Display Diagnoses
-                $(".grid").remove();
-                var diagnosis = $("<h2>").attr("id", "diagnosis").text(`Diagnosis: ${data.diagnosis}`);
-                var etiology = $("<h2>").attr("id", "etiology").text(`Etiology: ${data.etiology}`);
-                var timeline = $("<h2>").attr("id", "timeline").text(`Timeline: ${data.timeline}`);
-                var workup = $("<h2>").attr("id", "workup").text(`Workup: ${data.workup}`);
-                $("body").append(diagnosis, etiology, timeline, workup);
-            });
+    var formattedName = diagnosisName.replace(" ", "%20");
+    // If Diagnosis is reached
+    $.get(`api/diagnosis/${formattedName}`, function(data) {
+        console.log(data);
+        // Display Diagnoses
+        $(".grid").remove();
+        var diagnosis = $("<h2>").attr("id", "diagnosis").text(`Diagnosis: ${data.diagnosis}`);
+        var etiology = $("<h2>").attr("id", "etiology").text(`Etiology: ${data.etiology}`);
+        var timeline = $("<h2>").attr("id", "timeline").text(`Timeline: ${data.timeline}`);
+        var workup = $("<h2>").attr("id", "workup").text(`Workup: ${data.workup}`);
+        $("body").append(diagnosis, etiology, timeline, workup);
+    });
 }
 
 exam("q1");
