@@ -5,7 +5,7 @@
 		<meta name="google-signin-scope" content="profile email">
 		<meta name="google-signin-client_id" content="1074948454090-760ecdsoggji9ptq5vesofh023ha4ahu.apps.googleusercontent.com">
 		<title>Diplopia Exam</title>
-		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="/style.css">
 		<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://apis.google.com/js/platform.js" async defer></script>
@@ -32,7 +32,7 @@
 					<!-- Close Window Icon "X" -->
 					<span class="signUpClose">&times;</span>
 					<!-- Modal Body -->
-					<form method="post" action="/register">
+					<form method="post" action="/api/register">
 					  <div class="form-group">
 					    <label>Email</label>
 					    <input type="text" class="form-control" placeholder="Email" name="email">
@@ -57,7 +57,7 @@
 					<!-- Close Window Icon "X" -->
 					<span class="loginClose">&times;</span>
 					<!-- Modal Body -->
-					<form action="/login" method="post">
+					<form action="/api/login" method="post">
 					    <div>
 					        <label>Email:</label>
 					        <input type="text" name="email"/>
@@ -74,6 +74,6 @@
 			</div>
 			<!-- Login Modal Close -->
 		</div>
-		<script src="main.js"></script>
+		<script src="/main.js"></script>
 	</body>
 	</ht

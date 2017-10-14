@@ -1,9 +1,9 @@
 var express = require("express");
 var bodyParser = require("body-parser");
-var passport = require("passport");
-var LocalStrategy = require('passport-local').Strategy;
+var passport = require("./config/login-routes");
+// var LocalStrategy = require('passport-local').Strategy;
 var expressValidator = require('express-validator');
-var flash = require('connect-flash');
+// var flash = require('connect-flash');
 var session = require('express-session');
 
 var db = require("./models");
@@ -41,16 +41,16 @@ app.use(expressValidator({
 }));
 
 // Connect Flash
-app.use(flash());
+//app.use(flash());
 
 // Global Vars
-app.use(function (req, res, next) {
-  res.locals.success_msg = req.flash('success_msg');
-  res.locals.error_msg = req.flash('error_msg');
-  res.locals.error = req.flash('error');
-  res.locals.user = req.user || null;
-  next();
-});
+// app.use(function (req, res, next) {
+//   res.locals.success_msg = req.flash('success_msg');
+//   res.locals.error_msg = req.flash('error_msg');
+//   res.locals.error = req.flash('error');
+//   res.locals.user = req.user || null;
+//   next();
+// });
 
 
 app.use(bodyParser.json());
@@ -62,11 +62,9 @@ app.use(express.static("public"));
 
 require("./routes/html-routes.js")(app);
 require("./routes/diagnosis-routes.js")(app);
-require("./routes/login-routes.js")(app);
-
 
 db.sequelize.sync({ force: false }).then(function() {
   app.listen(PORT, function() {
-    console.log("App listening on PORT " + PORT);
+    console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
   });
 });
