@@ -41,7 +41,7 @@ html, body {
 
 #logo {
     margin-top: 10px;
-    color: rgba(0, 119, 181, 0.9);
+    color: rgb(219, 182, 89);
     font-family: 'Indie Flower', cursive;
     font-weight: 700;
     font-size: 2em; 
@@ -149,9 +149,9 @@ button {
 }
 
 #testBox {
-    margin: 20vh 0 0 58vw;
+    margin: 20vh 0 0 15vw;
     padding-top: 5vh;
-    background-color: rgba(0, 119, 181, 0.9);
+    background: #777; /* For browsers that do not support gradients */
     border-radius: 4px;
     border: #000 solid 1px;
     box-shadow: 10px 10px 5px #555555;
