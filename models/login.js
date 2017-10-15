@@ -1,28 +1,3 @@
-// module.exports = function(sequelize, DataTypes) {
-// 	var User = sequelize.define("User", {
-// 		email: {
-// 			type: DataTypes.STRING,
-// 			validate: {
-// 				isEmail: true
-// 			}
-// 		},
-// 		password: DataTypes.STRING
-// 	});
-
-// 	User.associate = function(models) {
-// 		User.belongsTo(models.Diagnosis, {
-// 			foreignKey: {
-// 				allowNull: false
-// 			}
-// 		});
-// 	};
-
-// 	return User;
-// }
-
-
-// Requiring bcrypt for password hashing. Using the bcrypt-nodejs version as the regular bcrypt module
-// sometimes causes errors on Windows machines
 var bcrypt = require("bcrypt-nodejs");
 // Creating our User model
 module.exports = function(sequelize, DataTypes) {
@@ -33,7 +8,8 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       unique: true,
       validate: {
-        isEmail: true
+        isEmail: true,
+        isUnique: true
       }
     },
     // The password cannot be null

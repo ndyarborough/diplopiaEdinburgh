@@ -1,9 +1,3 @@
-$.ajax('/api/user_data', {
-    type: 'GET'
-}).then(function(data) {
-    console.log(data)
-})
-
 const questionSet = {
     q1: {
         question: "Does the patient see two separate images or one blurred image?",
@@ -42,7 +36,7 @@ const questionSet = {
         a1: "Eyes Converge",
         n1: "Cranial Nerve Six Palsy",
         a2: "Eyes Diverge",
-        n2: "Internuclear Opthalmoplegia",
+        n2: "Internuclear Ophthalmoplegia",
         previous: "q4"
     },
     q6: {
@@ -66,10 +60,8 @@ const questionSet = {
 $(".btn").on("click", function() {
     // If True is clicked
     if ($(this).attr("id") === "btn0") {
-
         if (questionSet[questionNumber].n1.length > 2) {
             goToDiagnosis(questionSet[questionNumber].n1);
-
         } else {
             // Next Question
             exam(questionSet[questionNumber].n1)
@@ -90,11 +82,9 @@ $(".btn").on("click", function() {
 
 var userInput;
 var questionNumber = "q1";
-
 function exam(currentQuestion) {
     questionNumber = currentQuestion;
     $("#backwards").remove();
-
     // Don't Display Backwards Icon on First Question
     if (questionNumber !== "q1") {
         var backwardButton = $("<div>").attr("id", "backwards");
@@ -106,12 +96,10 @@ function exam(currentQuestion) {
             return;
         })
     }
-
     // Populate Question Div
     var questionText = questionSet[currentQuestion].question;
     var question = document.getElementById("question");
     question.innerHTML = questionText;
-
     // Populate Answers
     var answer1 = document.getElementById("btn0");
     var answer2 = document.getElementById("btn1");
@@ -122,18 +110,33 @@ function exam(currentQuestion) {
 }
 
 function goToDiagnosis(diagnosisName) {
-    var formattedName = diagnosisName.replace(" ", "%20");
+    $.get('/api/user_data').then(function(user) {
+        console.log(user.email);
+        var formattedName = diagnosisName.replace(" ", "%20");
     // If Diagnosis is reached
-    $.get(`/api/diagnosis/${formattedName}`, function(data) {
-        console.log(data);
-        // Display Diagnoses
-        $(".grid").remove();
-        var diagnosis = $("<h2>").attr("id", "diagnosis").text(`Diagnosis: ${data.diagnosis}`);
-        var etiology = $("<h2>").attr("id", "etiology").text(`Etiology: ${data.etiology}`);
-        var timeline = $("<h2>").attr("id", "timeline").text(`Timeline: ${data.timeline}`);
-        var workup = $("<h2>").attr("id", "workup").text(`Workup: ${data.workup}`);
-        $("body").append(diagnosis, etiology, timeline, workup);
-    });
+        $.get(`/api/diagnosis/${formattedName}`, function(data) {
+            console.log(data);
+            // Display Diagnoses
+            $(".grid").remove();
+            console.log(data.id);
+            var diagnosis = $("<h2>").attr("id", "diagnosis").text(`Diagnosis: ${data.diagnosis}`);
+            var etiology = $("<h2>").attr("id", "etiology").text(`Etiology: ${data.etiology}`);
+            var timeline = $("<h2>").attr("id", "timeline").text(`Timeline: ${data.timeline}`);
+            var workup = $("<h2>").attr("id", "workup").text(`Workup: ${data.workup}`);
+            $("body").append(diagnosis, etiology, timeline, workup);
+
+            $.post(`/api/update`, {email: user.email, diagnosisId: data.id}).then(function(data) {});
+        });
+    }); 
 }
+
+
+$('#signoutBtn').on('click', function() {
+    $.ajax('/logout', {
+        type: "GET"
+    }).then(function() {
+        
+    })
+})
 
 exam("q1");

@@ -41,13 +41,3 @@ window.onclick = function(event) {
         loginModal.style.display = "none";
     }
 }
-
-
-$('#logoutBtn').on('click', function() {
-    $.ajax('/logout', {
-        type: "GET"
-    }).then(function() {
-        
-    })
-})
-
