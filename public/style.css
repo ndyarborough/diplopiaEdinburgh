@@ -183,6 +183,7 @@ form button {
 #testBox button:hover {
     background-color: rgb(219, 182, 89);
     color: #000;
+    border-color: #000;
 }
 
 #testBox h1 {

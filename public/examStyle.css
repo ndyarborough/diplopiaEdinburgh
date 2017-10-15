@@ -1,5 +1,5 @@
 body {
-	background-color: #cccccc;
+	background-image: url(img/sketch.png);
 	margin: 0;
 }
 
@@ -272,4 +272,17 @@ button {
 #diagnosis {
     font-size: 4em;
     margin: 25px 0 0 15px;
+}
+
+.loginBox {
+    padding: 5vh 3vw;
+    font-family: sans-serif;
+    margin: 5vh auto;
+    height: 20vw;
+    width: 65vw;
+    background-color: rgba(119, 119, 119, 0.8);
+}
+
+.loginBox img {
+    
 }
