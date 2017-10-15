@@ -14,8 +14,7 @@ module.exports = function(app) {
 			email: req.body.email,
 			password: req.body.password
 		}).then(function(results) {
-			res.render('index')
-			//res.sendFile(path.join(__dirname, '../public/main.html'));
+			res.sendFile(path.join(__dirname, '../public/main.html'));
 		}).catch(function(err) {
 			console.log(err);
 			res.json(err);

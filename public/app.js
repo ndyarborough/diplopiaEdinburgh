@@ -90,7 +90,7 @@ function exam(currentQuestion) {
         var backwardButton = $("<div>").attr("id", "backwards");
         var icon = $("<i>").addClass("fa fa-2x fa-backward").attr("aria-hidden", "true");
         $("#buttons").prepend(backwardButton);
-        $(backwardButton).append(icon);
+        $(backwardButton).append(icon)0
         backwardButton.click(function() {
             exam(questionSet[questionNumber].previous);
             return;
