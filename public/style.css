@@ -117,7 +117,7 @@ input[type=text], input[type=password] {
 }
 
 /* Set a style for all buttons */
-button {
+form button {
     background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
@@ -170,7 +170,14 @@ button {
 }
 
 #testBox button {
-    border: solid 1px rgb(219, 182, 89);
+    padding: 20px 30px;
+    margin: 0 1vw;
+    background-color: #333;
+    font-size: 1.3em;
+    font-weight: 300;
+    color: #fff;
+    border-radius: 5px;
+    border: rgb(219, 182, 89) solid 1px ;
 }
 
 #testBox button:hover {
