@@ -9,7 +9,6 @@ var db = require("./models");
 var app = express();
 var PORT = process.env.PORT || 3000;
 
-
 if (process.env.JAWSDB_URL) {
   connection = mysql.createConnection(process.env.JAWSDB_URL);
 } else {
@@ -20,7 +19,6 @@ if (process.env.JAWSDB_URL) {
     database: 'todoagain_db'
   });
 };
-
 
 // Express Session
 app.use(session({
