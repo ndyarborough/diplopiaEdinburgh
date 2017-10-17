@@ -19,7 +19,7 @@ video {
 
 .nav-list {
     display: block;
-    height: 12vh;
+    height: 10vh;
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -40,7 +40,7 @@ video {
 }
 
 .nav-list li a {
-    margin-top: 20px;
+    margin-top: 10px;
     display: block;
     color: white;
     font-size: 1.2em;
@@ -54,12 +54,15 @@ video {
     background-color: #111;
 }
 
+
 #logo {
-    margin-top: 10px;
+    padding: 0 5px 0 20px;
+    margin-top: 15px;
     color: rgb(219, 182, 89);
     font-family: 'Indie Flower', cursive;
     font-weight: 700;
-    font-size: 2em; 
+    font-size: 2em;
+    text-shadow: 3px 3px #333;
 }
 
 #main-container {
@@ -159,14 +162,16 @@ form button {
 }
 
 #testBox {
-    margin: 20vh 0 0 15vw;
+    margin: 20vh 0 0 8vw;
+    float: left;
     padding-top: 5vh;
     background: rgba(85, 85, 85, 0.7); /* For browsers that do not support gradients */
     border-radius: 4px;
     border: #000 solid 1px;
-    height: 20%;
+    height: 30%;
     width: 35%;
     text-align: center;
+    text-shadow: #000 2px 2px;
 }
 
 #testBox button {
@@ -187,8 +192,13 @@ form button {
 }
 
 #testBox h1 {
-    margin: 0 0 3vh;
+    margin: 0 0 5vh;
     color: #fff;
+}
+
+#testBox span {
+    color: #fff;
+    font-size: 1.8em;
 }
 
 #beginTest {
@@ -236,4 +246,21 @@ form button {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+#facts {
+    background-color: rgba(85, 85, 85, 0.85);
+    padding: 2vh 2vw;
+    float: left;
+    width: 40vw;
+    margin: 4%;
+    border: 1px #000 solid;
+    border-radius: 8px;
+    color: #fff;
+    text-shadow: 2px 2px #000;
+}
+
+#facts li {
+    font-size: 1.8em;
+    margin: 15px auto;
 }

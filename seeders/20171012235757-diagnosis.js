@@ -44,9 +44,9 @@ module.exports = {
         workup: 'Complete ocular exam. Tensilon test. CT scan of head and orbits (suspect orbital disease). MRI of the brain.'    
       },{
         diagnosis: 'Blurred Vision',
-        etiology: null,
-        timeline: null,
-        workup: null    
+        etiology: 'null',
+        timeline: 'null',
+        workup: 'null'    
       }], {});
         /*
       Add altering commands here.

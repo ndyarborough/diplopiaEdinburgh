@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "Sweetboyy1",
+    "password": "root",
     "database": "diplopia_db",
     "host": "127.0.0.1",
     "dialect": "mysql"

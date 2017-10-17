@@ -49,3 +49,65 @@ window.onclick = function(event) {
         loginModal.style.display = "none";
     }
 }
+
+$('#signUpForm').on('click', function(event) {
+    event.preventDefault();
+
+    var userData = {
+        email: $('#signUpEmail').val().trim(),
+        password: $('#signUpPassword').val().trim()
+    };
+
+    if (!userData.email || !userData.password) {
+      alert('You must enter a Email and Password!');      
+      return;
+    }
+
+    signUpUser(userData.email, userData.password);
+    $('#signUpEmail').val("");
+    $('#signUpPassword').val("");
+    $('#signUpPassword2').val("");
+  });
+
+  function signUpUser(email, password) {
+    $.post("/api/register", {
+      email: email,
+      password: password
+    }).then(function(data) {
+      console.log(data);
+      if (data.errors) {
+        alert('Error: ' + data.errors[0].message);
+      }
+      else {
+        window.location.replace(data);
+      }
+    }).catch(function(err) {
+
+    });
+  }
+
+  $('#logInForm').on('click', function(event) {
+    event.preventDefault();
+
+    var userData = {
+        email: $('#logInEmail').val().trim(),
+        password: $('#logInPassword').val().trim()
+    };
+
+    if (!userData.email || !userData.password) {
+      alert('You must enter a Email and Password!')
+      return;
+    }
+
+    $.post('/api/login', {
+        email: userData.email,
+        password: userData.password
+    }).then(function(data) {
+      window.location.replace(data)
+    }).catch(function(err) {
+      console.log(err);
+    })
+
+    $('#logInEmail').val("");
+    $('#logInPassword').val("");
+  });

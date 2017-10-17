@@ -15,20 +15,19 @@
 			<h1>Log in here to start your test!</h1>
 			<hr style="border-color:#000">
 			
-			<form action="/api/login" method="post">
+			<form class='login' method="post", action="/api/login">
 			<div>
 				<label>Email:</label>
-				<input type="text" name="email"/>
+				<input id='loginEmail' type="text" name="email"/>
 			</div>
 			<div>
 				<label>Password:</label>
-				<input type="password" name="password"/>
+				<input id='loginPassword' type="password" name="password"/>
 			</div>
 			<div>
 				<button class="btn btn-default" type="submit">Log In</button>
 			</div>
 		</form>	
 		</div>
-		
 	</body>
 </html>

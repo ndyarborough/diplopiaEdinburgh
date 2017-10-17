@@ -90,7 +90,7 @@ function exam(currentQuestion) {
         var backwardButton = $("<div>").attr("id", "backwards");
         var icon = $("<i>").addClass("fa fa-2x fa-backward").attr("aria-hidden", "true");
         $("#buttons").prepend(backwardButton);
-        $(backwardButton).append(icon)0
+        $(backwardButton).append(icon);
         backwardButton.click(function() {
             exam(questionSet[questionNumber].previous);
             return;
@@ -117,13 +117,22 @@ function goToDiagnosis(diagnosisName) {
         $.get(`/api/diagnosis/${formattedName}`, function(data) {
             console.log(data);
             // Display Diagnoses
-            $(".grid").remove();
+            $(".grid").empty();
             console.log(data.id);
-            var diagnosis = $("<h2>").attr("id", "diagnosis").text(`Diagnosis: ${data.diagnosis}`);
-            var etiology = $("<h2>").attr("id", "etiology").text(`Etiology: ${data.etiology}`);
-            var timeline = $("<h2>").attr("id", "timeline").text(`Timeline: ${data.timeline}`);
-            var workup = $("<h2>").attr("id", "workup").text(`Workup: ${data.workup}`);
-            $("body").append(diagnosis, etiology, timeline, workup);
+            var info = $("<div>").attr("id", "info").css({"text-align":"left", "font-size":"1.4em"});
+            var header = $("<h1>").attr("id", "header").css("color","black").text("Diagnosis");
+            var diagnosis = $("<h2>").attr("id", "diagnosis").text("Result: ").css({"color":"#333", "font-weight":"700"}).append($("<span>").text(data.diagnosis).css({"color":"#333", "font-weight":"100"}));
+            var etiology = $("<h2>").attr("id", "etiology").text("Etiology: ").css({"color":"#333", "font-weight":"700"}).append($("<span>").text(data.etiology).css({"color":"#333", "font-weight":"100"}));
+            var timeline = $("<h2>").attr("id", "timeline").text("Timeline: ").css({"color":"#333", "font-weight":"700"}).append($("<span>").attr("class","timelineText").text(data.timeline).css({"color":"#333", "font-weight":"100"}));
+            var workup = $("<h2>").attr("id", "workup").text("Workup: ").css({"color":"#333", "font-weight":"700"}).append($("<span>").text(data.workup).css({"color":"#333", "font-weight":"100"}));
+            $(".grid").append(info);
+            $(info).append(diagnosis, etiology, timeline, workup);
+            $(".grid").prepend(header);
+
+            if (data.timeline === "Refer urgently.") {
+                $(".timelineText").css("color","red");
+                console.log("ahah");
+            }
 
             $.post(`/api/update`, {email: user.email, diagnosisId: data.id}).then(function(data) {});
         });

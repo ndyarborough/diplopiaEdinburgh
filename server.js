@@ -14,6 +14,7 @@ app.use(session({
     secret: 'secret',
     saveUninitialized: true,
     resave: true
+
 }));
 
 // Passport init

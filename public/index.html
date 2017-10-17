@@ -25,9 +25,19 @@
 			</ul>
 			<!-- Begin Test Button -->
 			<div id="testBox">
-				<h1>Register to take the Test</h1>
+				<h1>Sign Up to Take the Quickest Online Diplopia Exam</h1>
 				<button id="signUp">Sign Up</button>
+				<span>or</span>
 				<button id="login">Login</button>
+			</div>
+			<div id="facts">
+				<h1>The High Cost of Medical Misdiagnosis</h1>
+				<hr style="border-color: #fff">
+					<ul>		
+						<li>The human cost (per year) due to misdiagnosis includes 10% of all patient deaths and between 6-17% of hospital based adverse effects.</li>
+						<li>Financially, the costs amount to 30% of annual health spending in the US (about $225 Billion per year).</li>
+						<li>Pre-algorithmic accuracy of diagnosis was 24%.  The algorithm-assisted diagnostic accuracy rose to 82%. This represents a massive improvement in diagnostic accuracy!</li>
+					</ul>
 			</div>
 			<!-- Login Modal -->
 			<!-- Signup Modal -->
@@ -37,20 +47,24 @@
 					<!-- Close Window Icon "X" -->
 					<span class="signUpClose">&times;</span>
 					<!-- Modal Body -->
-					<form method="post" action="/api/register">
+					<form class='signup'>
+						<div style="display: block" id="alert" class="alert alert-danger" role="alert">
+				            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+				            <span class="sr-only">Error:</span> <span class="msg"></span>
+			          	</div>
 					  <div class="form-group">
 					    <label>Email</label>
-					    <input type="text" class="form-control" placeholder="Email" name="email">
+					    <input type="text" id='signUpEmail' class="form-control" placeholder="Email" name="email">
 					  </div>
 					  <div class="form-group">
 					    <label>Password</label>
-					    <input type="password" class="form-control" placeholder="Password" name="password">
+					    <input type="password" id='signUpPassword' class="form-control" placeholder="Password" name="password">
 					  </div>
 					  <div class="form-group">
 					    <label>Confirm Password</label>
-					    <input type="password" class="form-control" placeholder="Password" name="password2">
+					    <input type="password" id='signUpPassword2' class="form-control" placeholder="Password" name="password2">
 					  </div>
-					  <button type="submit" class="btn btn-default">Submit</button>
+					  <button type="submit" id='signUpForm' class="btn btn-default">Submit</button>
 					</form>
 				</div>
 			</div>
@@ -62,17 +76,21 @@
 					<!-- Close Window Icon "X" -->
 					<span class="loginClose">&times;</span>
 					<!-- Modal Body -->
-					<form action="/api/login" method="post">
+					<form class='login'>
+						<div style="display: block" id="alert" class="alert alert-danger" role="alert">
+				            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+				            <span class="sr-only">Error:</span> <span class="msg"></span>
+			          	</div>
 					    <div>
-					        <label>Email:</label>
-					        <input type="text" name="email"/>
+					        <label>Email</label>
+					        <input id='logInEmail' type="text" name="email"/>
 					    </div>
 					    <div>
-					        <label>Password:</label>
-					        <input type="password" name="password"/>
+					        <label>Password</label>
+					        <input id='logInPassword' type="password" name="password"/>
 					    </div>
 					    <div>
-					        <button class="btn btn-default" type="submit">Log In</button>
+					        <button id='logInForm' class="btn btn-default" type="submit">Log In</button>
 					    </div>
 					</form>
 				</div>

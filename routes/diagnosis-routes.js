@@ -5,7 +5,7 @@ var path = require('path');
 module.exports = function(app) {
 
 	app.post("/api/login", passport.authenticate("local"), function(req, res) {
-	    res.sendFile(path.join(__dirname, '../public/main.html'))
+	    res.json('/members');
 	});
 
 	app.post("/api/register", function(req, res) {
@@ -13,8 +13,8 @@ module.exports = function(app) {
 		db.User.create({
 			email: req.body.email,
 			password: req.body.password
-		}).then(function(results) {
-			res.sendFile(path.join(__dirname, '../public/login.html'));
+		}).then(function() {
+			res.redirect(307, '/api/login')
 		}).catch(function(err) {
 			console.log(err);
 			res.json(err);
