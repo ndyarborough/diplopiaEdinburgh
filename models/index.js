@@ -8,16 +8,31 @@ var env       = process.env.NODE_ENV || 'development';
 var config    = require(__dirname + '/../config/config.json')[env];
 var db        = {};
 
-if (process.env.JAWSDB_URL) {
-  connection = mysql.createConnection(process.env.JAWSDB_URL);
-} else {
-  connection = mysql.createConnection({
-    host: 'localhost',
-    password: 'hacktheplanet',
-    user: 'root',
-    database: 'todoagain_db'
-  });
-};
+// if (process.env.JAWSDB_URL) {
+//   connection = mysql.createConnection(process.env.JAWSDB_URL);
+// } else {
+//   connection = mysql.createConnection({
+//     host: 'localhost',
+//     password: 'hacktheplanet',
+//     user: 'root',
+//     database: 'todoagain_db'
+//   });
+// };
+
+  if (process.env.JAWSDB_URL) {
+    // the application is executed on Heroku ... use the postgres database
+    sequelize = new Sequelize(process.env.JAWSDB_URL)
+  } else {
+    // the application is executed on the local machine ... use mysql
+    sequelize = new Sequelize({ 
+      dialect:  'mysql',
+      protocol: 'mysql',
+      host:     'localhost',
+      password: 'hacktheplanet',
+      user: 'root',
+      database: 'todoagain_db'
+    })
+  }
 
 if (config.use_env_variable) {
   var sequelize = new Sequelize(process.env[config.use_env_variable]);
