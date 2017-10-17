@@ -14,6 +14,18 @@ if (config.use_env_variable) {
   var sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 
+if (process.env.JAWSDB_URL) {
+  connection = mysql.createConnection(process.env.JAWSDB_URL);
+} else {
+  connection = mysql.createConnection({
+    host: 'localhost',
+    password: 'hacktheplanet',
+    user: 'root',
+    database: 'todoagain_db'
+  });
+};
+
+
 fs
   .readdirSync(__dirname)
   .filter(file => {
