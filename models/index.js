@@ -19,12 +19,18 @@ var db        = {};
 //   });
 // };
 
+// if (config.use_env_variable) {
+//   var sequelize = new Sequelize(process.env[config.use_env_variable]);
+// } else {
+//   var sequelize = new Sequelize(config.database, config.username, config.password, config);
+// }
+
   if (process.env.JAWSDB_URL) {
     // the application is executed on Heroku ... use the postgres database
-    sequelize = new Sequelize(process.env.JAWSDB_URL)
+    var sequelize = new Sequelize(process.env.JAWSDB_URL)
   } else {
     // the application is executed on the local machine ... use mysql
-    sequelize = new Sequelize({ 
+    var sequelize = new Sequelize({ 
       dialect:  'mysql',
       protocol: 'mysql',
       host:     'localhost',
@@ -33,13 +39,7 @@ var db        = {};
       database: 'todoagain_db'
     })
   }
-
-// if (config.use_env_variable) {
-//   var sequelize = new Sequelize(process.env[config.use_env_variable]);
-// } else {
-//   var sequelize = new Sequelize(config.database, config.username, config.password, config);
-// }
-
+  
 fs
   .readdirSync(__dirname)
   .filter(file => {
@@ -58,5 +58,7 @@ Object.keys(db).forEach(modelName => {
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
+
+
 
 module.exports = db;
