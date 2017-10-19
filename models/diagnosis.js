@@ -61,9 +61,9 @@ module.exports = (sequelize, DataTypes) => {
         workup: 'Complete ocular exam. Tensilon test. CT scan of head and orbits (suspect orbital disease). MRI of the brain.'    
       },{
         diagnosis: 'Blurred Vision',
-        etiology: 'null',
-        timeline: 'null',
-        workup: 'null'    
+        etiology: 'Probable refractive error or media opacity. May be due to ocular disease process of the anterior or posterior segment.',
+        timeline: 'Depending on etiology, may be urgent or non-critical and non-urgent.',
+        workup: 'Complete ophthalmic exam with eye care provider including refraction and ocular health evaluation.'   
   	}]);
 
 	return Diagnosis;
