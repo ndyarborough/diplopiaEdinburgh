@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
 		Diagnosis.hasOne(models.User);
 	};
 
-	Diagnosis.create({
+	Diagnosis.bulkCreate({
         diagnosis: 'Cerebral polyopia',
         etiology: 'Is uncommon and can be caused by infarctions, tumors, multiple sclerosis, trauma, migraines, and seizures.',
         timeline: 'Refer urgently.',
